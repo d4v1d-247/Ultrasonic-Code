@@ -11,7 +11,7 @@ a direct connection to the power source.
 ### Pins that are in use
 - 0 + 2
 - 17 - 12
-- 21 - 22
+- 21 - 23
 - 25 - 27
 - GND, VIN, 3.3V
 
@@ -38,6 +38,7 @@ a direct connection to the power source.
 | ----- | ----- |
 | 22    | SCL   |
 | 21    | SDA   |
+| 23    | SQW   |
 | 3.3V  | VCC   |
 | GND   | GND   |
 

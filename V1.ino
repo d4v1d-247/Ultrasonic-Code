@@ -54,6 +54,8 @@ void setup() {
   Serial.begin(9600);
   Wire.begin();
   
+  pinsetup();
+  
   // SD Card
   if(!SD.begin()){ Serial.println("ERROR: Card Mount Failed"); return; }
   uint8_t cardType = SD.cardType();

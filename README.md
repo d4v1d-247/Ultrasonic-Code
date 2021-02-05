@@ -14,7 +14,7 @@ VIN nur eine Verbindung zum Eingangsstrom.
 ### Pins die benutzt werden
 - 0 + 2
 - 17 - 12
-- 21 - 22
+- 21 - 23
 - 25 - 27
 - GND, VIN, 3.3V
 
@@ -41,6 +41,7 @@ VIN nur eine Verbindung zum Eingangsstrom.
 | ----- | ----- |
 | 22    | SCL   |
 | 21    | SDA   |
+| 23    | SQW   |
 | 3.3V  | VCC   |
 | GND   | GND   |
 

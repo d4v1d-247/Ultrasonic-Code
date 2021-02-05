@@ -1,5 +1,3 @@
-#define CLOCK_ADDRESS 0x68
-
 void parse_serial(DS3231& Clock) {
   char serial_buf[64] = { 0 };
   char * strtokIndex;

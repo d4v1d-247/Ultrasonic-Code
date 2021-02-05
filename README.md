@@ -36,22 +36,17 @@ VIN nur eine Verbindung zum Eingangsstrom.
 | 3.3V  | VCC      |
 | GND   | GND      |
 
-### Uhr
-| ESP32 | Uhr   |
-| ----- | ----- |
-| 22    | SCL   |
-| 21    | SDA   |
-| 23    | SQW   |
-| 3.3V  | VCC   |
-| GND   | GND   |
+### Uhr & LCD Display
+Das Interface, mit dem die Uhr und das Display angesteuert werden (I²C) kann mehrere
+Geräte an den gleichen Pins angeschlossen haben.
 
-### LCD Display
-| ESP32 | LCD   |
-| ----- | ----- |
-| 16    | SCL   |
-| 17    | SDA   |
-| 3.3V  | VCC   |
-| GND   | GND   |
+| ESP32 | Uhr   | LCD	|
+| ----- | ----- | ----- |
+| 22    | SCL   | SCL   |
+| 21    | SDA   | SDA   |
+| 23    | SQW   |		|
+| 3.3V  | VCC   | VCC	|
+| GND   | GND   | GND	|
 
 ### Drehgeber
 | ESP32 | Rot.	|

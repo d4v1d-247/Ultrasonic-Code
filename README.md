@@ -1,21 +1,24 @@
 # Ultrasonic-Code
 
-This repo contains code for a school project, where an ESP32 reads an ultrasonic
-sensor and saves the data to an SD card.
+Dieses Repo enthält Code für ein Schulprojekt, in dem ein ESP32 mit einem Ultraschallsensor
+Entfernung misst und die Daten auf eine SD-Karte speichert.
 
-## Pin connections
-Some of the VCC Pins that are connected to 3.3V may need to be changed to VIN later.
-3.3V is better though if it works, because it's a regulated source, while VIN is 
-a direct connection to the power source.
+Kommentare im Code sind größtenteils in Englisch geschrieben um mit dem Rest konsistent
+zu bleiben.
 
-### Pins that are in use
+## Pin Verbindungen
+Einige der 3.3V Pins müssen u.U. später auf VIN umgesteckt werden. Wenn es funktioniert
+sollte 3.3V aber bevorzugt werden, da es eine regulierte Spannungsquelle ist und
+VIN nur eine Verbindung zum Eingangsstrom.
+
+### Pins die benutzt werden
 - 0 + 2
 - 17 - 12
 - 21 - 22
 - 25 - 27
 - GND, VIN, 3.3V
 
-### Ultrasonic Sensor
+### Ultraschall Sensor
 | ESP32 | Sensor |
 | ----- | ------ |
 | VIN   | VCC    |
@@ -23,18 +26,18 @@ a direct connection to the power source.
 | 0     | Echo   |
 | 2     | Trig   |
 
-### SD-Card Reader
-| ESP32 | SD Reader |
-| ----- | --------- |
-| 15    | CS        |
-| 14    | SCK       |
-| 13    | MOSI      |
-| 12    | MISO      |
-| 3.3V  | VCC       |
-| GND   | GND       |
+### SD-Karten Leser
+| ESP32 | SD Leser |
+| ----- | -------- |
+| 15    | CS       |
+| 14    | SCK      |
+| 13    | MOSI     |
+| 12    | MISO     |
+| 3.3V  | VCC      |
+| GND   | GND      |
 
-### Clock
-| ESP32 | Clock |
+### Uhr
+| ESP32 | Uhr   |
 | ----- | ----- |
 | 22    | SCL   |
 | 21    | SDA   |
@@ -49,7 +52,7 @@ a direct connection to the power source.
 | 3.3V  | VCC   |
 | GND   | GND   |
 
-### Rotary Encoder
+### Drehgeber
 | ESP32 | Rot.	|
 | ----- | ----- |
 | 3.3V	| +		|

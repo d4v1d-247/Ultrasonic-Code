@@ -22,6 +22,9 @@
 DS3231 Clock;
 LiquidCrystal_I2C Lcd(LCD_ADR, 16, 2);
 
+uint32_t last_time = 0;
+uint16_t last_data = 0;
+
 void setup() {
   Serial.begin(9600);
   Wire.begin();
@@ -51,8 +54,10 @@ void loop() {
   Lcd.home();
   Lcd.printf("Distanz  %04dmm \nSchnelle %01d.%02dm/s", this_data, int(velocity), int((int(velocity)-velocity)*100));
 
-  filedump(this_data, velocity, Clock);
-  
+  if(filedumping) {
+    filedump(this_data, velocity, Clock);
+  }
+
   last_time = this_time;
   last_data = this_data;
 }

@@ -46,8 +46,8 @@ Syntax: setdate YYMMDDHHMMSS\
     Clock.setMinute(Temp1 * 10 + Temp2);
 
     // Second
-    Temp1 = (byte)argument[11] -48;
-    Temp2 = (byte)argument[12] -48;
+    Temp1 = (byte)argument[10] -48;
+    Temp2 = (byte)argument[11] -48;
     Clock.setSecond(Temp1 * 10 + Temp2);
 
     Clock.setClockMode(false); // 24h mode

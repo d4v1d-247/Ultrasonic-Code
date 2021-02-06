@@ -4,9 +4,6 @@ char path[32] = { 0 };
 char* str_date = (char*)"2000-00-00\0";
 char* str_time = (char*)"00.00.00\0";
 
-uint32_t last_time = 0;
-uint16_t last_data = 0;
-
 bool filedumping = false;
 
 void start_filedump(DS3231& Clock) {
@@ -34,18 +31,16 @@ void start_filedump(DS3231& Clock) {
 }
 
 void filedump(uint16_t this_data, float velocity, DS3231& Clock) {
-  if(filedumping) {
-    update_str_time(str_time, Clock);
+  update_str_time(str_time, Clock);
 
-    char out[128] = { 0 };
-    sprintf(out,
-      "%s.%04d;%04d;%d.%02d\n",
-      str_time,
-      ms,
-      this_data,
-      int(velocity),
-      int((int(velocity)-velocity)*100)
-    );
-    SD_appendFile(SD, path, out);
-  }
+  char out[128] = { 0 };
+  sprintf(out,
+    "%s.%04d;%04d;%d.%02d\n",
+    str_time,
+    ms,
+    this_data,
+    int(velocity),
+    int((int(velocity)-velocity)*100)
+  );
+  SD_appendFile(SD, path, out);
 }

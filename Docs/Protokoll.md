@@ -14,3 +14,6 @@ Wir haben ein Programm zu Ultraschallsensor, Speicherkarte und der Echtzeituhr p
 
 ## 05.02.2021
 Tjark stellt sein Programm vor und erklärt was wie funktioniert. Wir beschäftigen uns noch ein bisschen mit allgemein Programmen.
+
+## 12.02.2021
+Wir haben uns erste Gedanken über das Experiment gemacht. Erst haben wir bemerkt, dass je höher die gemessene Distanz ist, so ungenauer das Ergebnis ist (ca. 50 cm). Daher war unsere Idee, in Richtung Arduino zu schlagen, um zu gucken wie schnell der Schlag war. 

@@ -1,6 +1,6 @@
 // Ultrasonic Sensor
 #define US_TRIGGER 4
-#define US_ECHO    5
+#define US_ECHO    15
 
 // RTC
 #define CLOCK_SDA 21

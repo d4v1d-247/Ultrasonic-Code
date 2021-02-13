@@ -37,3 +37,12 @@ VIN nur eine Verbindung zum Eingangsstrom.
 | 25	| CLK	|
 | 26	| DT	|
 | 27	| SW	|
+
+## DS1302 RTC
+| ESP32 | RTC	 |
+| ----- | ------ |
+| 5V	| VCC    |
+| GND   | GND    |
+| 33    | CLK    |
+| 32    | DAT    |
+| 17	| RST	 |

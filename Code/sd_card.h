@@ -60,7 +60,7 @@ void SD_appendFile(fs::FS &fs, const char* path, const char* message) {
     return;
   }
   if(file.print(message)){
-    Serial.printf("INFO: Appended to file %s\n", path);
+    //Serial.printf("INFO: Appended to file %s\n", path);
   } else {
     Serial.printf("ERROR: Failed to append to file %s\n", path);
   }

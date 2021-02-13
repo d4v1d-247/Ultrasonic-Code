@@ -2,9 +2,9 @@ void pinsetup() {
   pinMode(US_TRIGGER, OUTPUT);
   pinMode(US_ECHO, INPUT);
 
-  pinMode(CLOCK_SQW, INPUT_PULLUP);
+  /*pinMode(CLOCK_SQW, INPUT_PULLUP);
 
-  attachInterrupt(digitalPinToInterrupt(CLOCK_SQW), update_ms, RISING);
+  attachInterrupt(digitalPinToInterrupt(CLOCK_SQW), update_ms, RISING);*/
 
   pinMode(ROT_CLK, INPUT);
   pinMode(ROT_DT, INPUT);

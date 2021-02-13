@@ -7,7 +7,8 @@
 
 #include <Wire.h>
 #include <SPI.h>
-#include <DS3231.h>    // https://github.com/NorthernWidget/DS3231     // The Unlicense
+#include <ThreeWire.h>
+#include <RtcDS1302.h> // https://github.com/Makuna/Rtc
 #include <LiquidCrystal_I2C.h> // https://github.com/fdebrabander/Arduino-LiquidCrystal-I2C-library
 
 #include "pins.h"
@@ -16,11 +17,9 @@
 #include "pinsetup.h"
 #include "ultrasonic.h"
 #include "sd_card.h"
-#include "serial_commands.h"
 #include "filedump.h"
+#include "serial_commands.h"
 
-SPIClass spi = SPIClass(HSPI);
-DS3231 Clock;
 LiquidCrystal_I2C Lcd(LCD_ADR, 16, 2);
 
 uint32_t last_time = 0;
@@ -30,42 +29,56 @@ void setup() {
   Serial.begin(115200);
   Wire.begin();
   Lcd.begin();
+  Clock.Begin();
 
   pinsetup();
-  
-  spi.begin(18, 19, 23, 5); // SCK, MISO, MOSI, CS
+
+  if(Clock.GetIsWriteProtected()) {
+    Clock.SetIsWriteProtected(false);
+    Serial.println("WARN: Clock was Write Protected. Changed.");
+  }
+  if(!Clock.GetIsRunning()) {
+    Clock.SetIsRunning(true);
+    Serial.println("WARN: Clock was paused. Changed.");
+  }
+  RtcDateTime t = Clock.GetDateTime();
+  print_time(t, "INFO: RTC-Time is");
+  if (t < COMP_TIME || t == 1367256704) { // 2nd applies when clock hasn't been set yet
+    Serial.println("WARN: RTC is older than compile time. Setting RTC to compile time.");
+    Clock.SetDateTime(COMP_TIME);
+  }
 
   // SD Card
-  if(!SD.begin(13, spi)){ Serial.println("ERROR: Card Mount Failed"); return; }
+  if(!SD.begin()){ Serial.println("ERROR: Card Mount Failed"); return; }
   uint8_t cardType = SD.cardType();
   if(cardType == CARD_NONE){ Serial.println("ERROR: No SD card attached"); return; }
 
-  start_filedump(Clock);
+  start_filedump(SD);
 }
 
 void loop() {
   if (Serial.available()) {
-    parse_serial(Clock);
+    parse_serial();
   }
   
   uint32_t this_time = millis();
   uint16_t this_data = US_dist_mm();
   float velocity = ( (float) (this_data) - (float) (last_data) ) / (float) (this_time - last_time);  // speed is a keyword :(
-  Serial.printf("Time: %08d ms  Distance: %04d mm  Speed: %+f mm/s\n", this_time, this_data, velocity);
+  Serial.printf("Time: %08d ms  Distance: %04d mm  Speed: %+f m/s\n", this_time, this_data, velocity);
   
   Lcd.clear();
   Lcd.home();
-  Lcd.printf("s         % 4dmm", this_data);
+  Lcd.printf("s        %5dmm", this_data);
   Lcd.setCursor(0, 1);
   Lcd.printf("v   %+fm/s", velocity);
 
   if(filedumping) {
-    filedump(this_data, velocity, Clock);
+    filedump(this_data, velocity, SD);
   }
 
   last_time = this_time;
   last_data = this_data;
 
-  Serial.println(encoderPos);
+  //Serial.println(encoderPos);
   delay(encoderPos*encoderPos); // Adds a delay to slow down the readings. Between 0ms and 65000ms changed by RotaryEncoder
 }

@@ -3,9 +3,9 @@
 #define US_ECHO    15
 
 // RTC
-#define CLOCK_SDA 21
-#define CLOCK_SCL 22
-#define CLOCK_SQW 23
+#define CLOCK_CLK 33
+#define CLOCK_DAT 32
+#define CLOCK_RST 17
 
 // LC Display
 #define LCD_SDA 21

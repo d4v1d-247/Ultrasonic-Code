@@ -12,6 +12,7 @@
 #include <LiquidCrystal_I2C.h> // https://github.com/fdebrabander/Arduino-LiquidCrystal-I2C-library
 
 #include "pins.h"
+LiquidCrystal_I2C Lcd(LCD_ADR, 16, 2);
 #include "misc.h"
 #include "rotary.h"
 #include "pinsetup.h"
@@ -20,7 +21,6 @@
 #include "filedump.h"
 #include "serial_commands.h"
 
-LiquidCrystal_I2C Lcd(LCD_ADR, 16, 2);
 
 uint32_t last_time = 0;
 uint16_t last_data = 0;
@@ -49,9 +49,20 @@ void setup() {
   }
 
   // SD Card
-  if(!SD.begin()){ Serial.println("ERROR: Card Mount Failed"); return; }
+  if(!SD.begin()){
+    Serial.println("ERROR: Card Mount Failed");
+    uint8_t cardType = SD.cardType();
+    if(cardType == CARD_NONE){
+      Serial.println("ERROR: No SD card attached");
+      return;
+    }
+    return;
+  }
   uint8_t cardType = SD.cardType();
-  if(cardType == CARD_NONE){ Serial.println("ERROR: No SD card attached"); return; }
+  if(cardType == CARD_NONE){
+    Serial.println("ERROR: No SD card attached");
+    return;
+  }
 
   start_filedump(SD);
 }
@@ -63,9 +74,12 @@ void loop() {
   
   uint32_t this_time = millis();
   uint16_t this_data = US_dist_mm();
-  float velocity = ( (float) (this_data) - (float) (last_data) ) / (float) (this_time - last_time);  // speed is a keyword :(
-  Serial.printf("Time: %08d ms  Distance: %04d mm  Speed: %+f m/s\n", this_time, this_data, velocity);
+  float velocity = (float) (this_data - last_data) / (float) (this_time - last_time);  // speed is a keyword :(
   
+  if(serialdumping) {
+    Serial.printf("Time: %08d ms  Distance: %04d mm  Speed: %+f m/s\n", this_time, this_data, velocity);
+  }
+
   Lcd.clear();
   Lcd.home();
   Lcd.printf("s        %5dmm", this_data);

@@ -4,9 +4,9 @@ void parse_serial() {
   char argument[64] = { 0 };
   Serial.readBytesUntil('\n', serial_buf, 64);
   
-  sscanf(serial_buf, "%s %s", command, argument);
+  uint8_t success = sscanf(serial_buf, "%s %s", command, argument);
 
-  if (!strcmp(command, "help")) {
+  if (!strcmp(command, "help") || success == EOF) {
     Serial.print("\
 setdate\n\
 Stellt das Datum der Uhr ein.\n\
@@ -17,10 +17,16 @@ Gibt das Datum der Uhr und der Kompilierung zurück.\n\
 \n\
 startdump\n\
 Startet das Schreiben auf die SD Karte.\n\
-Diese muss schon beim Start des Messgeräts eingesetzt sein.\
+Diese muss schon beim Start des Messgeräts eingesetzt sein.\n\
 \n\
 stopdump\n\
-Stoppt das Schreiben auf die SD Karte.\
+Stoppt das Schreiben auf die SD Karte.\n\
+\n\
+startsdump\n\
+Startet das Ausgeben der Daten über den Seriellen Monitor.\n\
+\n\
+stopsdump\n\
+Stoppt das Ausgeben der Daten über den Seriellen Monitor.\n\
 ");
   } else if (!strcmp(command, "setdate")) {
     uint16_t Year = 0;
@@ -37,5 +43,9 @@ Stoppt das Schreiben auf die SD Karte.\
     start_filedump(SD);
   } else if (!strcmp(command, "stopdump")) {
     filedumping = false;
+  } else if (!strcmp(command, "startsdump")) {
+    serialdumping = true;
+  } else if (!strcmp(command, "stopsdump")) {
+    serialdumping = false;
   }
 }

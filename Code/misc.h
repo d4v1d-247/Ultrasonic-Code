@@ -14,6 +14,8 @@ void print_time(RtcDateTime& t, char* prefix) {
   Serial.printf("%s %04d-%02d-%02d %02d:%02d:%02d\n", prefix, t.Year(), t.Month(), t.Day(), t.Hour(), t.Minute(), t.Second());
 }
 
+bool serialdumping = true;
+
 volatile uint16_t ms = 0;
 uint32_t old_millis = 0;
 void update_ms() {

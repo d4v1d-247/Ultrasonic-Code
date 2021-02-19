@@ -6,7 +6,7 @@ VIN nur eine Verbindung zum Eingangsstrom.
 ## Ultraschall Sensor
 | ESP32 | Sensor |
 | ----- | ------ |
-| VIN   | VCC    |
+| 5V    | VCC    |
 | GND   | GND    |
 | 15    | Echo   |
 | 4     | Trig   |
@@ -14,35 +14,35 @@ VIN nur eine Verbindung zum Eingangsstrom.
 ## SD-Karten Leser
 | ESP32 | SD Leser |
 | ----- | -------- |
-| 15    | CS       |
-| 14    | SCK      |
-| 13    | MOSI     |
-| 12    | MISO     |
-| 3.3V  | VCC      |
+| 5     | CS       |
+| 18    | SCK      |
+| 23    | MOSI     |
+| 19    | MISO     |
+| 5V    | VCC      |
 | GND   | GND      |
 
 ## LCD Display
-| ESP32 | LCD	|
+| ESP32 | LCD	  |
 | ----- | ----- |
 | 22    | SCL   |
 | 21    | SDA   |
-| 3.3V  | VCC	|
-| GND   | GND	|
+| 3.3V  | VCC	  |
+| GND   | GND	  |
 
 ## Drehgeber
 | ESP32 | Rot.	|
 | ----- | ----- |
-| 3.3V	| +		|
-| GND	| GND	|
-| 25	| CLK	|
-| 26	| DT	|
-| 27	| SW	|
+| 3.3V	| +		  |
+| GND	  | GND  	|
+| 25	  | CLK 	|
+| 26	  | DT  	|
+| 27	  | SW	  |
 
 ## DS1302 RTC
-| ESP32 | RTC	 |
+| ESP32 | RTC	   |
 | ----- | ------ |
-| 5V	| VCC    |
+| 5V	  | VCC    |
 | GND   | GND    |
 | 33    | CLK    |
 | 32    | DAT    |
-| 17	| RST	 |
+| 17	  | RST	   |

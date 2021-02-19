@@ -15,5 +15,11 @@ Wir haben ein Programm zu Ultraschallsensor, Speicherkarte und der Echtzeituhr p
 ## 05.02.2021
 Tjark stellt sein Programm vor und erklärt was wie funktioniert. Wir beschäftigen uns noch ein bisschen mit allgemein Programmen.
 
+## 11.02.2021
+Wir haben das Display gelötet und den Rest des Ultraschallsensor zusammengesteckt/zusammengebaut
+
 ## 12.02.2021
 Wir haben uns erste Gedanken über das Experiment gemacht. Erst haben wir bemerkt, dass je höher die gemessene Distanz ist, so ungenauer das Ergebnis ist (ca. 50 cm). Daher war unsere Idee, in Richtung Arduino zu schlagen, um zu gucken wie schnell der Schlag war. 
+
+## 19.02.2021
+Wir haben uns Fritzing runtergeladen und Jannik die Aufgabe gegeben, unser Projekt in Fritzing "nachzubauen". Außerdem haben wir uns weitere Gedanken über ein Experiment gemacht und haben uns u.a. Gedanken über ein Radar gemacht. Wir fragte Herrn Reid, ob das Experiment umsetztbar wäre und wie sich das Pflichtenheft geändert hat. Auch mit Herrn Bruhe muss nochmal geredet werden, weil durch eine Veränderung des Experiments auch die Funktion des Gerätes geändert wird. Das RTC-Modul (RealTimeClock) sollte urspünglich Distanzen messen. Da sie aber nur auf Sekunden messen kann reicht dies nicht. Die Arduino-Uhr kann stattdessen auf Millisekunden messen und ersetzt das RTC-Modul 

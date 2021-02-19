@@ -17,3 +17,6 @@ Tjark stellt sein Programm vor und erklärt was wie funktioniert. Wir beschäfti
 
 ## 12.02.2021
 Wir haben uns erste Gedanken über das Experiment gemacht. Erst haben wir bemerkt, dass je höher die gemessene Distanz ist, so ungenauer das Ergebnis ist (ca. 50 cm). Daher war unsere Idee, in Richtung Arduino zu schlagen, um zu gucken wie schnell der Schlag war. 
+
+## 19.02.2021
+Wir haben uns Fritzing runtergeladen und Jannik die Aufgabe gegeben, unser Projekt in Fritzing zu "bauen"

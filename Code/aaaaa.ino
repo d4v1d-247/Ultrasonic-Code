@@ -7,18 +7,19 @@
 
 #include <Wire.h>
 #include <SPI.h>
-#include <ThreeWire.h>
+#include <ThreeWire.h> // https://github.com/Makuna/Rtc
 #include <RtcDS1302.h> // https://github.com/Makuna/Rtc
 #include <LiquidCrystal_I2C.h> // https://github.com/fdebrabander/Arduino-LiquidCrystal-I2C-library
 
 #include "pins.h"
-LiquidCrystal_I2C Lcd(LCD_ADR, 16, 2);
 #include "misc.h"
+#include "rtc.h"
 #include "rotary.h"
 #include "pinsetup.h"
 #include "ultrasonic.h"
 #include "sd_card.h"
 #include "filedump.h"
+#include "lcd_ui.h"
 #include "serial_commands.h"
 
 
@@ -80,11 +81,17 @@ void loop() {
     Serial.printf("Time: %08d ms  Distance: %04d mm  Speed: %+f m/s\n", this_time, this_data, velocity);
   }
 
-  Lcd.clear();
+  /*Lcd.clear();
   Lcd.home();
   Lcd.printf("s        %5dmm", this_data);
   Lcd.setCursor(0, 1);
-  Lcd.printf("v   %+fm/s", velocity);
+  Lcd.printf("v   %+fm/s", velocity);*/
+  for (byte i = 0; i < 8; i++) {
+    Serial.print(ui_pos[i]);
+  }
+  Serial.println("");
+  Serial.println(ui_depth);
+  show_ui();
 
   if(filedumping) {
     filedump(this_data, velocity, SD);

@@ -2,8 +2,6 @@ char folder[16] = { 0 };
 char filename[16] = { 0 };
 char path[32] = { 0 };
 
-bool filedumping = false;
-
 void start_filedump(fs::FS &SD) {
   memset(folder, 0, 16);
   strcat(folder, "/");

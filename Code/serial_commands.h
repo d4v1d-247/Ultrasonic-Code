@@ -39,6 +39,11 @@ Stoppt das Ausgeben der Daten über den Seriellen Monitor.\n\
     RtcDateTime t = Clock.GetDateTime();
     print_time(t, "RTC-Time is");
     print_time(COMP_TIME, "Compilertime is");
+    Lcd.clear();
+    Lcd.home();
+    Lcd.printf("%04d-%02d-%02d", t.Year(), t.Month(), t.Day());
+    Lcd.setCursor(0, 1);
+    Lcd.printf("  %02d:%02d:%02d", t.Hour(), t.Minute(), t.Second());
   } else if (!strcmp(command, "startdump")) {
     start_filedump(SD);
   } else if (!strcmp(command, "stopdump")) {

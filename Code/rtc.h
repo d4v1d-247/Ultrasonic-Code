@@ -10,7 +10,7 @@ void update_str_time() {
   snprintf(str_date, 12, "%04d-%02d-%02d", t.Year(), t.Month(), t.Day());
 }
 
-void print_time(RtcDateTime& t, char* prefix) {
+void print_time(RtcDateTime& t, const char* prefix) {
   Serial.printf("%s %04d-%02d-%02d %02d:%02d:%02d\n", prefix, t.Year(), t.Month(), t.Day(), t.Hour(), t.Minute(), t.Second());
 }
 

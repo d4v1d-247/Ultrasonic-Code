@@ -6,7 +6,7 @@ uint8_t ui_pos[8] = { 0 };
 uint8_t ui_depth = 0;
 
 
-const char ui_str_back[] = "Zur"UE"ck";
+const char ui_str_back[] = "Zur" UE "ck";
 const char ui_str_end[] = "-----";
 
 const char ui_str_1[] = "Experiment";

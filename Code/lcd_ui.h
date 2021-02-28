@@ -32,9 +32,13 @@ void encoder_neg() {
 
 void encoder_click() {
 	if(ui_pos[ui_depth] == 0 && ui_depth > 0) {
-		ui_depth--;
+		if(ui_depth > 0) {
+			ui_depth--;
+		}
 	} else {
-		ui_depth++;
+		if(ui_depth < 7) {
+			ui_depth++;
+		}
 	}
 }
 
@@ -45,10 +49,6 @@ void ui_return() {
 }
 
 void show_ui() {
-	A_change = false;
-	B_change = false;
-	S_change = false;
-
 	Lcd.clear();
 	Lcd.home();
 
@@ -119,4 +119,8 @@ void show_ui() {
 		}
 		default: ui_pos[0] = 1;
 	}
+	delay(200);
+	A_change = false;
+	B_change = false;
+	S_change = false;
 }

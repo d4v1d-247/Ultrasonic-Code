@@ -101,5 +101,5 @@ void loop() {
   last_data = this_data;
 
   //Serial.println(encoderPos);
-  delay(encoderPos*encoderPos); // Adds a delay to slow down the readings. Between 0ms and 65000ms changed by RotaryEncoder
+  //delay(encoderPos*encoderPos); // Adds a delay to slow down the readings. Between 0ms and 65000ms changed by RotaryEncoder
 }

@@ -9,5 +9,5 @@ void pinsetup() {
 
   attachInterrupt(digitalPinToInterrupt(ROT_CLK), doEncoderA, CHANGE);
   attachInterrupt(digitalPinToInterrupt(ROT_DT), doEncoderB, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(ROT_SW), EncoderButton, FALLING);
+  attachInterrupt(digitalPinToInterrupt(ROT_SW), EncoderButton, CHANGE);
 }

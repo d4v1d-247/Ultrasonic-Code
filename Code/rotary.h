@@ -1,5 +1,5 @@
 volatile uint8_t encoderPos = 10;
-
+uint32_t buttonpresstime = 0;
 volatile bool A_set = false;
 volatile bool B_set = false;
 volatile bool S_set = false;
@@ -37,12 +37,14 @@ void doEncoderB() {
 void EncoderButton() {
   if(!S_set) {
     S_set = true;
-    //delay(10); // Debounce
-    if(!digitalRead(ROT_SW) && !S_change) {
-      S_change = true;
-      encoder_click();
+    if(digitalRead(ROT_SW)) {
+      buttonpresstime = millis();
+    } else {
+      if (millis() - 20 < buttonpresstime && !S_change) { // make number higher if button bounces
+        S_change = true;
+        encoder_click();
+      }
     }
-    //delay(50); //Debounce
     S_set = false;
   }
   

@@ -10,11 +10,39 @@
 #include <ThreeWire.h> // https://github.com/Makuna/Rtc
 #include <RtcDS1302.h> // https://github.com/Makuna/Rtc
 #include <LiquidCrystal_I2C.h> // https://github.com/fdebrabander/Arduino-LiquidCrystal-I2C-library
+#include <SPI.h>
+#include "SD.h"
+#include "FS.h"
 
-#include "pins.h"
-#include "misc.h"
+// Ultrasonic Sensor
+#define US_TRIGGER  4
+#define US_ECHO    15
+
+// RTC
+#define CLOCK_CLK 33
+#define CLOCK_DAT 32
+#define CLOCK_RST 17
+
+// LC Display
+#define LCD_SDA 21
+#define LCD_SCL 22
+#define LCD_ADR 0x27
+
+// Rotary Encoder
+#define ROT_CLK 25
+#define ROT_DT  26
+#define ROT_SW  27
+
+LiquidCrystal_I2C Lcd(LCD_ADR, 16, 2);
+ThreeWire clock_wire(CLOCK_DAT, CLOCK_CLK, CLOCK_RST);
+RtcDS1302<ThreeWire> Clock(clock_wire);
+RtcDateTime COMP_TIME = RtcDateTime(__DATE__, __TIME__);
+
+bool serialdumping = true;
+bool filedumping = false;
+
+
 #include "rtc.h"
-#include "rotary.h"
 #include "pinsetup.h"
 #include "ultrasonic.h"
 #include "sd_card.h"
@@ -31,39 +59,9 @@ void setup() {
   Wire.begin();
   Lcd.begin();
   Clock.Begin();
-
   pinsetup();
-
-  if(Clock.GetIsWriteProtected()) {
-    Clock.SetIsWriteProtected(false);
-    Serial.println("WARN: Clock was Write Protected. Changed.");
-  }
-  if(!Clock.GetIsRunning()) {
-    Clock.SetIsRunning(true);
-    Serial.println("WARN: Clock was paused. Changed.");
-  }
-  RtcDateTime t = Clock.GetDateTime();
-  print_time(t, "INFO: RTC-Time is");
-  if (t < COMP_TIME || t == 1367256704) { // 2nd applies when clock hasn't been set yet
-    Serial.println("WARN: RTC is older than compile time. Setting RTC to compile time.");
-    Clock.SetDateTime(COMP_TIME);
-  }
-
-  // SD Card
-  if(!SD.begin()){
-    Serial.println("ERROR: Card Mount Failed");
-    uint8_t cardType = SD.cardType();
-    if(cardType == CARD_NONE){
-      Serial.println("ERROR: No SD card attached");
-      return;
-    }
-    return;
-  }
-  uint8_t cardType = SD.cardType();
-  if(cardType == CARD_NONE){
-    Serial.println("ERROR: No SD card attached");
-    return;
-  }
+  clock_setup();
+  sd_setup();
 
   start_filedump(SD);
 }
@@ -99,7 +97,4 @@ void loop() {
 
   last_time = this_time;
   last_data = this_data;
-
-  //Serial.println(encoderPos);
-  //delay(encoderPos*encoderPos); // Adds a delay to slow down the readings. Between 0ms and 65000ms changed by RotaryEncoder
 }

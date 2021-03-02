@@ -9,10 +9,10 @@ Hier befinden sich die Funktionen die das Messgerät haben soll und hat.
 | Ausgeben der Daten über LCD 				| ✅ Fertig 							|
 | Speicherung der Daten auf SD-Karte 		| ✅ Fertig 							|
 | Verwendung einer RTC für die Daten 		| ✅ Fertig 							|
-| Experiment 								| 🕑 In Arbeit						|
-| Anleitung                      			| 📅 Geplant 						|
-| Berechnung von Fläche / Volumen 			| 📅 Geplant 						|
-| UI über LCD und Drehgeber 				| 📅 Geplant 						|
-| Gehäuse									| 📅 Geplant 						|
-| Versenden der Daten über Bluetooth 		| 📅 Geplant, Niedrige Priorität 	|
+| Experiment 								| 🕑 In Arbeit						 |
+| UI über LCD und Drehgeber 				| 🕑 In Arbeit						 |
+| Anleitung                      			| 📅 Geplant 						 |
+| Berechnung von Fläche / Volumen 			| 📅 Geplant 						 |
+| Gehäuse									| 📅 Geplant 						 |
+| Versenden der Daten über Bluetooth 		| 📅 Geplant, Niedrige Priorität 	 |
 

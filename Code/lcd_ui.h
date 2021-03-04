@@ -50,6 +50,14 @@ volatile bool S_change = false; // So that it doesn't do multiple steps during o
 volatile bool A_change = false; // Display update, gets reset during show_ui()
 volatile bool B_change = false;
 
+
+void ui_return() {
+  /* Goes to the parent level in the ui */
+  ui_pos[ui_depth] = 0;
+  ui_depth--;
+}
+
+
 void doEncoderA() {
   if(digitalRead(ROT_CLK) != A_set) {
     A_set = !A_set;
@@ -100,7 +108,7 @@ void EncoderButton() {
         S_change = true;
         if(ui_pos[ui_depth] == 0 && ui_depth > 0) {
           if(ui_depth > 0) {
-            ui_depth--;
+            ui_return();
           }
         } else {
           if(ui_depth < 7) {
@@ -126,13 +134,6 @@ const char ui_str_1_3[] = "Dist. & Geschw.";
 const char ui_str_2[] = "Einstellungen";
 const char ui_str_2_1[] = "Geschwindigkeit";
 const char ui_str_2_2[] = "Zeit";
-
-
-
-void ui_return() {
-  ui_pos[ui_depth] = 0;
-  ui_depth--;
-}
 
 void show_ui() {
   Lcd.clear();

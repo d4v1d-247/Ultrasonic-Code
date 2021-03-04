@@ -7,7 +7,8 @@ to a more readable format.
 If the functions doesn't receive a response from the sensor within 30ms 
 (roughly 5 meters) it will give up and return 0.*/
 
-const float mmPerMicroS2 = 0.1716; // The doubled Distance of sound in mm per microsecond
+// The doubled Distance of sound in mm per microsecond
+const float mmPerMicroS2 = 0.1716;
 
 uint16_t US_dist_mm() {
   digitalWrite(US_TRIGGER, HIGH);

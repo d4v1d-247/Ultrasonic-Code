@@ -5,14 +5,19 @@
  *          Tools->Board->Boards Manager->install ESP32
  */
 
+// Standard Librarys
 #include <Wire.h>
-#include <SPI.h>
-#include <ThreeWire.h> // https://github.com/Makuna/Rtc
-#include <RtcDS1302.h> // https://github.com/Makuna/Rtc
-#include <LiquidCrystal_I2C.h> // https://github.com/fdebrabander/Arduino-LiquidCrystal-I2C-library
 #include <SPI.h>
 #include "SD.h"
 #include "FS.h"
+
+// https://github.com/Makuna/Rtc
+#include <ThreeWire.h> 
+#include <RtcDS1302.h>
+
+// https://github.com/fdebrabander/Arduino-LiquidCrystal-I2C-library
+#include <LiquidCrystal_I2C.h>
+
 
 // Ultrasonic Sensor
 #define US_TRIGGER  4
@@ -50,7 +55,7 @@ bool filedumping = false;
 #include "lcd_ui.h"
 #include "serial_commands.h"
 
-
+// For the calculation of speed
 uint32_t last_time = 0;
 uint16_t last_data = 0;
 
@@ -73,10 +78,17 @@ void loop() {
   
   uint32_t this_time = millis();
   uint16_t this_data = US_dist_mm();
-  float velocity = (float) (this_data - last_data) / (float) (this_time - last_time);  // speed is a keyword :(
+  
+  float velocity = // speed is a keyword :(
+    (float) (this_data - last_data) / (float) (this_time - last_time); 
   
   if(serialdumping) {
-    Serial.printf("Time: %08d ms  Distance: %04d mm  Speed: %+f m/s\n", this_time, this_data, velocity);
+    Serial.printf(
+      "Time: %08d ms  Distance: %04d mm  Speed: %+f m/s\n",
+      this_time,
+      this_data,
+      velocity
+    );
   }
 
   /*Lcd.clear();

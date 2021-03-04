@@ -42,7 +42,12 @@ Stoppt das Ausgeben der Daten über den Seriellen Monitor.\n\
   } else if (!strcmp(command, "setdate")) {
     uint16_t Year = 0;
     uint8_t Month = 0, Date = 0, Hour = 0, Minute = 0, Second = 0;
-    sscanf(argument, "%hu-%hhu-%hhu %hhu:%hhu:%hhu", &Year, &Month, &Date, &Hour, &Minute, &Second);
+    sscanf(
+      argument,
+      "%hu-%hhu-%hhu %hhu:%hhu:%hhu",
+      &Year, &Month, &Date,
+      &Hour, &Minute, &Second
+    );
     RtcDateTime t(Year, Month, Date, Hour, Minute, Second);
     Clock.SetDateTime(t);
 

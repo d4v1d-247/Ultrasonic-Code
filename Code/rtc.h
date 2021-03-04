@@ -43,8 +43,13 @@ void clock_setup() {
 
   RtcDateTime t = Clock.GetDateTime();
   print_time(t, "INFO: RTC-Time is");
-  if (t < COMP_TIME || t == 1367256704) { // 2nd applies when clock hasn't been set yet
-    Serial.println("WARN: RTC is older than compile time. Setting RTC to compile time.");
+
+  // 2nd applies when clock hasn't been set yet
+  if (t < COMP_TIME || t == 1367256704) {
+    Serial.println(
+      "WARN: RTC time is behind compile time. "
+      "Setting RTC to compile time."
+    );
     Clock.SetDateTime(COMP_TIME);
   }
 }

@@ -13,7 +13,7 @@ Wir haben mit den Stundeten den Discord eingerichtet. Danach gingen die Gruppen 
 Wir haben ein Programm zu Ultraschallsensor, Speicherkarte und der Echtzeituhr programmiert. Es gab ein paar Schwierigkeiten am Anfang, da erstmal Ideen zum Programm fehlten.
 
 ## 05.02.2021
-Tjark stelltê sein Programm vor und erklärte was wie funktioniert. Wir beschäftigten uns noch ein bisschen mit allgemein Programmen.
+Tjark stellte sein Programm vor und erklärte was wie funktioniert. Ob es dann schlussendlich wirklich funktoniert, konnten wir noch nicht sagen. Wir beschäftigten uns noch ein bisschen mit allgemein Programmen, da nicht jeder aus der Gruppe mit der Programmierung vertraut war
 
 ## 11.02.2021
 Wir haben das Display gelötet und den Rest des Ultraschallsensor zusammengesteckt/zusammengebaut. Es gab erstmal keine wirklichen Probleme

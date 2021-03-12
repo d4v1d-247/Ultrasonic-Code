@@ -16,7 +16,7 @@ Wir haben ein Programm zu Ultraschallsensor, Speicherkarte und der Echtzeituhr p
 Tjark stelltê sein Programm vor und erklärte was wie funktioniert. Wir beschäftigten uns noch ein bisschen mit allgemein Programmen.
 
 ## 11.02.2021
-Wir haben das Display gelötet und den Rest des Ultraschallsensor zusammengesteckt/zusammengebaut
+Wir haben das Display gelötet und den Rest des Ultraschallsensor zusammengesteckt/zusammengebaut. Es gab erstmal keine wirklichen Probleme
 
 ## 12.02.2021
 Wir haben uns erste Gedanken über das Experiment gemacht. Erst haben wir bemerkt, dass je höher die gemessene Distanz ist, so ungenauer das Ergebnis ist (ca. 50 cm). Daher war unsere Idee, in Richtung Arduino zu schlagen, um zu gucken wie schnell der Schlag war. Weiter haben wir eine Anleitung geschrieben, die für die Lehrer bestimmt war. Außerdem mussten wir mit Herrn Bruse über das Programm sprechen.
@@ -31,6 +31,6 @@ Wir haben  unseren Schaltplan in Fritzing nachgebaut und Fehler im Programm unte
 Wir haben erstmal den Stand der Dinge geklärt. Dann haben Jannes, Sophie, und Emil von Jannik und Tjark getrennt. Jannik hat den Schaltplan in Fritzing fertiggestellt. Jannes, Sophie und Emil haben auf Iserv angefangen eine Erklärung, Materialienliste etc angefertigt. 
 
 ## 12.03.2021
-Es wurde am Anfang der Stunde erstmal eine kleine Präsentation über den Stand der Dinge geklärt.
+Es wurde am Anfang der Stunde erstmal eine kleine Präsentation über den Stand der Dinge geklärt. Tjark hat dann getestet, ob der Code mit dem Messgerät zusammen funktioniert. Die anderen haben weiterhin eine Beschreibung für das Ultraschallmessgerät angefertigt und weitere Probleme gschildert.
 
 

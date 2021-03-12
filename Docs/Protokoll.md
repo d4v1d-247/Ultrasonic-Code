@@ -28,6 +28,9 @@ Wir haben uns Fritzing runtergeladen und Jannik die Aufgabe gegeben, unser Proje
 Wir haben  unseren Schaltplan in Fritzing nachgebaut und Fehler im Programm untersucht. Zudem wurde am Anfang eine kleine Präsentation über den Stand der Dinge gehalten.
 
 ## 05.03.2021
-Wir haben erstmal den Stand der Dinge geklärt.
+Wir haben erstmal den Stand der Dinge geklärt. Dann haben Jannes, Sophie, und Emil von Jannik und Tjark getrennt. Jannik hat den Schaltplan in Fritzing fertiggestellt. Jannes, Sophie und Emil haben auf Iserv angefangen eine Erklärung, Materialienliste etc angefertigt. 
+
+## 12.03.2021
+Es wurde am Anfang der Stunde erstmal eine kleine Präsentation über den Stand der Dinge geklärt.
 
 

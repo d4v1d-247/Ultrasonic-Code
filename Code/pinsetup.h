@@ -7,8 +7,6 @@ according pinchanges.
 
 // Written here, because these functions will be defined in lcd_ui.h but are
 // already referenced here.
-extern void doEncoderA();
-extern void doEncoderB();
 extern void EncoderButton();
 
 void pinsetup() {
@@ -16,14 +14,9 @@ void pinsetup() {
   pinMode(US_TRIGGER, OUTPUT);
   pinMode(US_ECHO, INPUT);
 
-
-  pinMode(ROT_CLK, INPUT_PULLUP);
-  pinMode(ROT_DT, INPUT_PULLUP);
   pinMode(ROT_SW, INPUT_PULLUP);
 
   // Attaches an Interrupt to the Pins of the Rotary Encoder,
   // which trigger a function when the value at the Pins change.
-  attachInterrupt(digitalPinToInterrupt(ROT_CLK), doEncoderA, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(ROT_DT), doEncoderB, CHANGE);
   attachInterrupt(digitalPinToInterrupt(ROT_SW), EncoderButton, CHANGE);
 }

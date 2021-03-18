@@ -31,25 +31,25 @@ Diese muss schon beim Start des Messgeräts eingesetzt sein.\n\
 stopdump\n\
 Stoppt das Schreiben auf die SD Karte.\n\
 \n\
-startsdump\n\
-Startet das Ausgeben der Daten über den Seriellen Monitor.\n\
-\n\
-stopsdump\n\
-Stoppt das Ausgeben der Daten über den Seriellen Monitor.\n\
 ");
 
   // sets the date of the RTC, takes date and time in ISO 8601 format
   } else if (!strcmp(command, "setdate")) {
     uint16_t Year = 0;
     uint8_t Month = 0, Date = 0, Hour = 0, Minute = 0, Second = 0;
-    sscanf(
+    uint8_t date_success = sscanf(
       argument,
       "%hu-%hhu-%hhu %hhu:%hhu:%hhu",
       &Year, &Month, &Date,
       &Hour, &Minute, &Second
     );
-    RtcDateTime t(Year, Month, Date, Hour, Minute, Second);
-    Clock.SetDateTime(t);
+    if(date_success != EOF) {
+      RtcDateTime t(Year, Month, Date, Hour, Minute, Second);
+      Clock.SetDateTime(t);
+    } else {
+      Serial.println("Das Format des Datums ist falsch.\
+Benutze YYYY-MM-DD HH:MM:SS");
+    }
 
   // prints the date from the RTC to to Serial	
   } else if (!strcmp(command, "getdate")) {
@@ -64,13 +64,5 @@ Stoppt das Ausgeben der Daten über den Seriellen Monitor.\n\
   // stops the filedumping
   } else if (!strcmp(command, "stopdump")) {
     filedumping = false;
-  
-  // starts fumping to serial (start*s*dump)
-  } else if (!strcmp(command, "startsdump")) {
-    serialdumping = true;
-  
-  // stops dumping to serial
-  } else if (!strcmp(command, "stopsdump")) {
-    serialdumping = false;
   }
 }

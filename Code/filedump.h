@@ -26,11 +26,15 @@ void start_filedump(fs::FS &SD) {
   strcat(filename, str_time);
   strcat(filename, ".csv");
 
+  memset(path, 0, 32);
   strcat(path, folder);
   strcat(path, filename);
 
-  SD_writeFile(SD, path, "Time;Millisecond;Distance in mm;Speed in m/s\n");
-  filedumping = true;
+  SD_writeFile(
+    SD, path,
+    "Time;Millisecond;Distance in mm;Speed in m/s;Relative Minutes;Relative Seconds\n"
+  );
+  //filedumping = true;
 }
 
 void filedump(uint16_t distance, float velocity, fs::FS &SD) {
@@ -48,6 +52,23 @@ void filedump(uint16_t distance, float velocity, fs::FS &SD) {
     millis(),
     distance,
     velocity
+  );
+  SD_appendFile(SD, path, out);
+}
+
+void filedump(uint16_t distance, float velocity, uint32_t relative_time, fs::FS &SD) {
+  /* Same as above, but takes a relative time in seconds. */
+  update_str_time();
+
+  char out[128] = { 0 };
+  sprintf(out,
+    "%s;%8lu;%4d;%.3f;%02d;%02d\n",
+    str_time,
+    millis(),
+    distance,
+    velocity,
+    relative_time / 60,
+    relative_time % 60
   );
   SD_appendFile(SD, path, out);
 }

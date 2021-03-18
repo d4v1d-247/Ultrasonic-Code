@@ -34,8 +34,6 @@
 #define LCD_ADR 0x27
 
 // Rotary Encoder
-#define ROT_CLK 25
-#define ROT_DT  26
 #define ROT_SW  27
 
 LiquidCrystal_I2C Lcd(LCD_ADR, 16, 2);
@@ -43,7 +41,6 @@ ThreeWire clock_wire(CLOCK_DAT, CLOCK_CLK, CLOCK_RST);
 RtcDS1302<ThreeWire> Clock(clock_wire);
 RtcDateTime COMP_TIME = RtcDateTime(__DATE__, __TIME__);
 
-bool serialdumping = true;
 bool filedumping = false;
 
 
@@ -52,12 +49,13 @@ bool filedumping = false;
 #include "ultrasonic.h"
 #include "sd_card.h"
 #include "filedump.h"
+#include "experiments.h"
 #include "lcd_ui.h"
 #include "serial_commands.h"
 
 // For the calculation of speed
-uint32_t last_time = 0;
-uint16_t last_data = 0;
+// uint32_t last_time = 0;
+// uint16_t last_data = 0;
 
 void setup() {
   Serial.begin(115200);
@@ -67,8 +65,6 @@ void setup() {
   pinsetup();
   clock_setup();
   sd_setup();
-
-  start_filedump(SD);
 }
 
 void loop() {
@@ -76,37 +72,5 @@ void loop() {
     parse_serial();
   }
   
-  uint32_t this_time = millis();
-  uint16_t this_data = US_dist_mm();
-  
-  float velocity = // speed is a keyword :(
-    (float) (this_data - last_data) / (float) (this_time - last_time); 
-  
-  if(serialdumping) {
-    Serial.printf(
-      "Time: %08d ms  Distance: %04d mm  Speed: %+f m/s\n",
-      this_time,
-      this_data,
-      velocity
-    );
-  }
-
-  /*Lcd.clear();
-  Lcd.home();
-  Lcd.printf("s        %5dmm", this_data);
-  Lcd.setCursor(0, 1);
-  Lcd.printf("v   %+fm/s", velocity);*/
-  for (byte i = 0; i < 8; i++) {
-    Serial.print(ui_pos[i]);
-  }
-  Serial.println("");
-  Serial.println(ui_depth);
   show_ui();
-
-  if(filedumping) {
-    filedump(this_data, velocity, SD);
-  }
-
-  last_time = this_time;
-  last_data = this_data;
 }

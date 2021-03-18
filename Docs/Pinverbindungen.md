@@ -20,3 +20,13 @@
 | 32    |          |             |        |           | DAT |
 | 33    |          |             |        |           | CLK |
 
+# Materialliste
+- LCD Display mit mindestens 16x2 Zeichen und PCF8574 IO Expander
+- ESP-WROOM-32 Microcontroller
+- DS1302 RTC Board
+- HC-SR04 Ultraschallsensor
+- SPI microSD-Karten Adapter
+- KY-040 Drehgeber
+- 4  M-F Jumper Kabel
+- 18 M-M Jumper Kabel
+- 2 Große Breadbords

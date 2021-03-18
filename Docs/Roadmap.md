@@ -9,8 +9,8 @@ Hier befinden sich die Funktionen die das Messgerät haben soll und hat.
 | Ausgeben der Daten über LCD 				| ✅ Fertig 							|
 | Speicherung der Daten auf SD-Karte 		| ✅ Fertig 							|
 | Verwendung einer RTC für die Daten 		| ✅ Fertig 							|
-| Experiment 								| 🕑 In Arbeit						|
-| UI über LCD und Drehgeber 				| 🕑 In Arbeit						|
+| Experiment 								| ✅ Fertig						|
+| UI über LCD und Drehgeber 				| ✅ Fertig						|
 | Filter, der Daten glättet        			| 📅 Geplant 						|
 | Anleitung                      			| 📅 Geplant 						|
 | Berechnung von Fläche / Volumen 			| 📅 Geplant 						|

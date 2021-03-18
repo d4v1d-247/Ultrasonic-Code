@@ -1,37 +1,25 @@
-#include <SPI.h>
-#include "SD.h"
-#include "FS.h"
+/* Functions regarding the SD Card and filesystem */
 
-void SD_listDir(fs::FS &fs, const char* dirname, uint8_t levels){
-  File root = fs.open(dirname);
-  if(!root){
-    Serial.printf("ERROR: Failed to open path %s\n", dirname);
-    return;
-  }
-  if(!root.isDirectory()){
-    Serial.printf("ERROR: %s is not a directory\n", dirname);
-    return;
-  }
+bool sd_error = false;
+bool no_sd = false;
 
-  File file = root.openNextFile();
-  while(file){
-    if(file.isDirectory()){
-      Serial.print("  DIR : ");
-      Serial.println(file.name());
-      if(levels){
-        SD_listDir(fs, file.name(), levels -1);
-      }
-    } else {
-      Serial.print("  FILE: ");
-      Serial.print(file.name());
-      Serial.print("  SIZE: ");
-      Serial.println(file.size());
-    }
-    file = root.openNextFile();
+void sd_setup() {
+  /* Sets up the SD Card */
+  if(!SD.begin()){
+    Serial.println("ERROR: Card Mount Failed");
+    sd_error = true;
   }
+  
+  uint8_t cardType = SD.cardType();
+  if(cardType == CARD_NONE){
+    Serial.println("ERROR: No SD card attached");
+    no_sd = true;
+  }
+  return;
 }
 
 void SD_mkDir(fs::FS &fs, const char* path) {
+  /* Creates a folder */
   if(fs.mkdir(path)){
     Serial.printf("INFO: Created path %s\n", path);
   } else {
@@ -40,6 +28,9 @@ void SD_mkDir(fs::FS &fs, const char* path) {
 }
 
 void SD_writeFile(fs::FS &fs, const char* path, const char* message) {
+  /* writes data to the specified folder,
+  creates a file, if it doesn't exist yet and deletes its content if it already
+  exists */
   File file = fs.open(path, FILE_WRITE);
   if(!file) {
     Serial.printf("ERROR: Failed to open file %s for writing\n", path);
@@ -54,6 +45,7 @@ void SD_writeFile(fs::FS &fs, const char* path, const char* message) {
 }
 
 void SD_appendFile(fs::FS &fs, const char* path, const char* message) {
+  /* writes data to the end of a file */
   File file = fs.open(path, FILE_APPEND);
   if(!file){
     Serial.printf("ERROR: Failed to open file %s for appending\n", path);
@@ -68,5 +60,6 @@ void SD_appendFile(fs::FS &fs, const char* path, const char* message) {
 }
 
 bool SD_exists(fs::FS &fs, const char* path) {
+  /* returns <true> if a path exists */
   return fs.exists(path);
 }

@@ -1,6 +1,7 @@
 # Anleitung
 
 ## Wie im Bild das Gerät aufbauen
+![Aufbau Bild](Aufbau.png "Der Aufbau")
 
 ## Bibliotheken installieren
 * _Arduino-IDE -> Datei -> Voreinstellungen -> Zusätzliche Boardverwalter-URLs ->_ ```https://dl.espressif.com/dl/package_esp32_index.json,http://arduino.esp8266.com/stable/package_esp8266com_index.json``` einfügen

@@ -42,10 +42,13 @@ uint16_t dist_mm(byte trigger_pin, byte echo_pin) {
 
 void loop() {
   // hier wird die Messung vom Sensor immer wieder am Seriellen Monitor ausgegeben.
-  Serial.print("Disatanz:" );
-  Serial.println(dist_mm(sensor_trigger, sensor_echo));
+  Serial.print("Distanz:" );
+  Serial.print(dist_mm(sensor_trigger, sensor_echo));
+  Serial.println("mm");
 }
 ```
+Dieser Code ist dafür da, um den Sensor auszuprobieren und eine minimale und verständliche Version des großen Codes zu haben.
+
 Wenn das Hochladen nicht funktioniert, aber der Code erfolgreich getestet wird, dann muss man beim Hochladen den _BOOT_ Knopf gedrückt halten.
 Das Messgerät sollte nun die Entfernung zum Sensor in Millimeter über den Seriellen Monitor ausgeben.
 

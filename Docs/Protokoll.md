@@ -33,4 +33,6 @@ Wir haben erstmal den Stand der Dinge geklärt. Dann haben Jannes, Sophie, und E
 ## 12.03.2021
 Es wurde am Anfang der Stunde erstmal eine kleine Präsentation über den Stand der Dinge geklärt. Tjark hat dann getestet, ob der Code mit dem Messgerät zusammen funktioniert. Die anderen haben weiterhin eine Beschreibung für das Ultraschallmessgerät angefertigt und weitere Probleme gschildert.
 
+## 18.03.2021
+Wir haben die Abschlusspowerpoint weiter beaarbeitet. Tjark hat die Menüfunktion gelöscht. Vorallem um das Protokoll und den Schluss haben wir uns gekümmert
 

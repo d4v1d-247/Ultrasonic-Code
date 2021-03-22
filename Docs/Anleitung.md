@@ -50,6 +50,8 @@ void loop() {
 Dieser Code ist dafür da, um den Sensor auszuprobieren und eine minimale und verständliche Version des großen Codes zu haben.
 
 Wenn das Hochladen nicht funktioniert, aber der Code erfolgreich getestet wird, dann muss man beim Hochladen den _BOOT_ Knopf gedrückt halten.
+Außerdem muss man darauf achten, das richtige Board (hier "ESP32 Dev Module") und den richtigen Port auszuwählen.
+
 Das Messgerät sollte nun die Entfernung zum Sensor in Millimeter über den Seriellen Monitor ausgeben.
 
 ## Kompletten Code hochladen

@@ -57,7 +57,8 @@ Das Messgerät sollte nun die Entfernung zum Sensor in Millimeter über den Seri
 ## Kompletten Code hochladen
 Wenn alles funktioniert hat, dann kannst du nun den "großen" Code herunterladen und installieren.
 
-1. Den Code von GitHub herunterladen: ```https://github.com/d4v1d-247/Ultrasonic-Code/archive/master.zip```
-2. Dann muss man die Datei irgendwohin entpacken.
-3. Dort befindet sich dann ein Unterordner mit dem Namen _Code_ in dem du dann die Datei _aaaaa.ino_ öffnen musst. 
-4. Nun noch den Code hochladen und fertig! Auf dem Display sollte jetzt der Hauptbildschirm angezeigt werden.
+1. Den Code von GitHub herunterladen: ```https://github.com/d4v1d-247/Ultrasonic-Code/releases/```. Hier die neueste Version (ganz oben) auswählen und die ```.zip``` Datei (unter _Assets_) herunterladen.
+3. Dann muss man die Datei irgendwohin entpacken.
+4. Dort befindet sich dann ein Unterordner mit dem Namen _Code_ in dem du dann die Datei _aaaaa.ino_ öffnen musst. 
+5. In der Arduino IDE muss man noch das richtige Board (ESP32 Dev Module) und den richtigen Port auswählen.
+6. Nun noch den Code hochladen und fertig! Auf dem Display sollte jetzt der Hauptbildschirm angezeigt werden.

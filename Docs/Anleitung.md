@@ -1,10 +1,13 @@
 # Anleitung
 
 ## Wie im Bild das Gerät aufbauen
+![Aufbau Bild](Aufbau.png "Der Aufbau")
 
 ## Bibliotheken installieren
 * _Arduino-IDE -> Datei -> Voreinstellungen -> Zusätzliche Boardverwalter-URLs ->_ ```https://dl.espressif.com/dl/package_esp32_index.json,http://arduino.esp8266.com/stable/package_esp8266com_index.json``` einfügen
-* ```RTC by Makuna``` Version 2.3.4 und ```LiquidCrystal I2C``` von Frank de Brabander Version 1.1.2 über _Werkzeuge -> Bibliotheken verwalten..._ installieren
+* _Arduino_IDE -> Werkzeuge -> Board -> Boardverwalter..._ ```ESP32``` installieren
+* ```RTC by Makuna``` Version 2.3.4 über _Werkzeuge -> Bibliotheken verwalten..._ installieren
+* https://github.com/fdebrabander/Arduino-LiquidCrystal-I2C-library/archive/refs/heads/master.zip herunterladen und über _Sketch -> Bibliothek einbinden -> .ZIP-Bibliothek hinzufügen..._ installieren
 
 ## Testcode hochladen
 ```C++
@@ -41,17 +44,23 @@ uint16_t dist_mm(byte trigger_pin, byte echo_pin) {
 
 void loop() {
   // hier wird die Messung vom Sensor immer wieder am Seriellen Monitor ausgegeben.
-  Serial.print("Disatanz:" );
-  Serial.println(dist_mm(sensor_trigger, sensor_echo));
+  Serial.print("Distanz:" );
+  Serial.print(dist_mm(sensor_trigger, sensor_echo));
+  Serial.println("mm");
 }
 ```
+Dieser Code ist dafür da, um den Sensor auszuprobieren und eine minimale und verständliche Version des großen Codes zu haben.
+
 Wenn das Hochladen nicht funktioniert, aber der Code erfolgreich getestet wird, dann muss man beim Hochladen den _BOOT_ Knopf gedrückt halten.
+Außerdem muss man darauf achten, das richtige Board (hier "ESP32 Dev Module") und den richtigen Port auszuwählen.
+
 Das Messgerät sollte nun die Entfernung zum Sensor in Millimeter über den Seriellen Monitor ausgeben.
 
 ## Kompletten Code hochladen
 Wenn alles funktioniert hat, dann kannst du nun den "großen" Code herunterladen und installieren.
 
-1. Den Code von GitHub herunterladen: ```https://github.com/d4v1d-247/Ultrasonic-Code/archive/master.zip```
-2. Dann muss man die Datei irgendwohin entpacken.
-3. Dort befindet sich dann ein Unterordner mit dem Namen _Code_ in dem du dann die Datei _aaaaa.ino_ öffnen musst. 
-4. Nun noch den Code hochladen und fertig! Auf dem Display sollte jetzt der Hauptbildschirm angezeigt werden.
+1. Den Code von GitHub herunterladen: https://github.com/d4v1d-247/Ultrasonic-Code/releases/. Hier die neueste Version (ganz oben) auswählen und die ```.zip``` Datei (unter _Assets_) herunterladen.
+3. Dann muss man die Datei irgendwohin entpacken.
+4. Dort befindet sich dann ein Unterordner mit dem Namen _Code_ in dem du dann die Datei _aaaaa.ino_ öffnen musst. 
+5. In der Arduino IDE muss man noch das richtige Board (ESP32 Dev Module) und den richtigen Port auswählen.
+6. Nun noch den Code hochladen und fertig! Auf dem Display sollte jetzt der Hauptbildschirm angezeigt werden.

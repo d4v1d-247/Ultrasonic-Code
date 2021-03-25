@@ -33,4 +33,9 @@ Wir haben erstmal den Stand der Dinge geklärt. Dann haben Jannes, Sophie, und E
 ## 12.03.2021
 Es wurde am Anfang der Stunde erstmal eine kleine Präsentation über den Stand der Dinge geklärt. Tjark hat dann getestet, ob der Code mit dem Messgerät zusammen funktioniert. Die anderen haben weiterhin eine Beschreibung für das Ultraschallmessgerät angefertigt und weitere Probleme gschildert.
 
+## 18.03.2021
+Wir haben die Abschlusspowerpoint weiter beaarbeitet. Tjark hat die Menüfunktion gelöscht, da uns die Zeit fehlte. Vorallem um das Protokoll und den Schluss haben wir uns gekümmert. Weiterhin wurden die Feinheiten der Abschlusspräsentation beschlossen
+
+## 19.03.2021
+Jannes, Jannik und Sophie haben die Abschlusspräsentation geübt. Da Tjark und Emil am Freitag nur online zur Verfügung sind, können sie die Präsentation nicht halten. Währendessen haben Tjark und Emil passende Batterien für die Stromzufuhr besorgt. Ein Problem war, dass die Batterien entweder 3,6 oder 9 Volt hatten. Das Ultraschallmessgerät kann aber nur 3,3 oder 5 Volt verkraften was ein Problem ist. In der letzen Stunde haben wir unser Lastenheft nochmal erweitert : Muss, Kann, Optional. Tjark und Jannes haben sich nochmal das Gerät angeguckt, damit Jannes bei der Abschlusspräsentation das Gerät erklären kann.
 

@@ -30,3 +30,4 @@
 - 4  M-F Jumper Kabel
 - 18 M-M Jumper Kabel
 - 2 Große Breadbords
+- 4-fach AA Batteriefach

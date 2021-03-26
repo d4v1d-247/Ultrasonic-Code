@@ -1,18 +1,11 @@
 # Beschreibung
-## Materialien
-* LCD Display mit mindestens 16x2 Zeichen und PCF8574 IO Expander
-* ESP-WROOM-32 Microcontroller
-* DS1302 RTC Board
-* HC-SR04 Ultraschallsensor
-* SPI microSD-Karten Adapter
-* KY-040 Drehgeber
-* 4 M-F Jumper Kabel
-* 18 M-M Jumper Kabel
-* 2 Große Breadbords
-
 ## Benötigt Software
 * Arduino IDE
-* Bibliotheken vom Arduino Paketmanager
+* _ESP32_ Boardmanager -> installation in [Anleitung.md](https://github.com/d4v1d-247/Ultrasonic-Code/blob/master/Docs/Anleitung.md#bibliotheken-installieren)
+* _RTC by Makuna_ -> über Arduino Bibliothekverwaltung installieren
+* _LiquidCrytal I2C_ von <https://github.com/fdebrabander/Arduino-LiquidCrystal-I2C-library/archive/refs/heads/master.zip> -> mit Sketch>Bibliothek einbinden>.ZIP-Bibliothek hinzufügen installieren
+* Tabellenkalkulationsprogramm mit CSV funktion zum auswerten der Daten
+* [csv_to_plot](https://github.com/d4v1d-247/Ultrasonic-Code/tree/master/csv_to_plot) um eine Radargrafik zu erstellen
 
 ## Beschreibung
 Das Radar. Erfunden von Heinrich Hertz im Jahr 1886 hat heutzutage in vielen Bereichen Anwendung. Es wird im Militär für U-Boote genutzt, um Hindernisse zu erkennen oder in der zivilen Luftfahrt, um die Position der Flugzeuge ausfindig zumachen. Eine Sachen haben sie gemeinsam. Beide Radare benötigen ein Ultraschallmessgerät um zu funktionieren. Ein Ultraschallmessgerät kann Distanzen in kürzester Zeit messen. Unsere Gruppe kam auf eine ähnliche Idee. Unser Ultraschallmessgerät kann zwar nur auf geringe Distanz messen, aber wenn man auf geringe Distanz misst kann man es so ähnlich nutzen wie bei U-Booten. Mit diesem Ultraschallmessgerät wollen wir Distanzen messen. Beachtet werden muss, dass es nur zwischen den Werten 5-150 cm funktioniert.  Wird unter oder über dieser Distanz gemessen werden die Werte ungenau und springt zwischen den Werten hin und her.

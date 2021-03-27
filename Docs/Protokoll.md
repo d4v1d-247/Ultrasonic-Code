@@ -39,3 +39,8 @@ Wir haben die Abschlusspowerpoint weiter beaarbeitet. Tjark hat die Menüfunktio
 ## 19.03.2021
 Jannes, Jannik und Sophie haben die Abschlusspräsentation geübt. Da Tjark und Emil am Freitag nur online zur Verfügung sind, können sie die Präsentation nicht halten. Währendessen haben Tjark und Emil passende Batterien für die Stromzufuhr besorgt. Ein Problem war, dass die Batterien entweder 3,6 oder 9 Volt hatten. Das Ultraschallmessgerät kann aber nur 3,3 oder 5 Volt verkraften was ein Problem ist. In der letzen Stunde haben wir unser Lastenheft nochmal erweitert : Muss, Kann, Optional. Tjark und Jannes haben sich nochmal das Gerät angeguckt, damit Jannes bei der Abschlusspräsentation das Gerät erklären kann.
 
+## 23, 25.03.2021 
+Wir haben mit dem Programm Freecard eine Box für unser Ultraschallmessgerät gebaut, die mit dem 3D-Drucker ausgedruckt werden sollte. Wir sind noch nicht ganz fertig geworden.
+
+## 26.03.201
+Die Abschlusspräsentationen der verschiedenen Gruppen wurden gehalten. Es gab ein paar technische Problemen konnte jede Gruppe ihre Präsentation halten.

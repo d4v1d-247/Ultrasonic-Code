@@ -43,4 +43,4 @@ Jannes, Jannik und Sophie haben die Abschlusspräsentation geübt. Da Tjark und 
 Wir haben mit dem Programm Freecard eine Box für unser Ultraschallmessgerät gebaut, die mit dem 3D-Drucker ausgedruckt werden sollte. Wir sind noch nicht ganz fertig geworden.
 
 ## 26.03.201
-Die Abschlusspräsentationen der verschiedenen Gruppen wurden gehalten. Es gab ein paar technische Problemen konnte jede Gruppe ihre Präsentation halten.
+Die Abschlusspräsentationen der verschiedenen Gruppen wurden gehalten. Nach ein paar technische Problemen konnte jede Gruppe ihre Präsentation halten.
